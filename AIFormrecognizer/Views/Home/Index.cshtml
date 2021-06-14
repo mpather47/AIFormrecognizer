@@ -1,0 +1,43 @@
+﻿
+@model AIFormrecognizer.Models.ViewModels
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<p>Click on the "Choose File" button to upload a file:</p>
+
+<form method="post">
+    <input type="file" asp-for="@Model.File.Filename" class="form-control">
+    <input type="submit">
+</form>
+
+<br />
+<br />
+<table style="width:100%">
+    <tr>
+        <th>Invoice Id</th>
+        <th>Invoice Date</th>
+        <th>Due Date</th>
+        <th>Vendor Name</th>
+        <th>Address</th>
+        <th>Customer Name</th>
+        <th>Invoice Total</th>
+    </tr>
+    @foreach (var item in Model.Invoices)
+    {
+<tr>
+    <td>@Html.DisplayFor(modelItem => item.InvoiceId)</td>
+    <td>@Html.DisplayFor(modelItem => item.InvoiceDate)</td>
+    <td>@Html.DisplayFor(modelItem => item.DueDate)</td>
+    <td>@Html.DisplayFor(modelItem => item.VendorName)</td>
+    <td>@Html.DisplayFor(modelItem => item.Address)</td>
+    <td>@Html.DisplayFor(modelItem => item.CustomerName)</td>
+    <td>@Html.DisplayFor(modelItem => item.InvoiceTotal)</td>
+</tr>
+     
+    }
+</table>
+
+
+
